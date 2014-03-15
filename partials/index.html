@@ -1,0 +1,88 @@
+<div class="flip-wrapper">
+	<div class="flip-container">
+		<div class="front">
+			<div class="dining-choice-container">
+				<img src="img/logo.png" />
+				<p>Spend more time eating and less time deciding. Would you rather...</p>
+				<input class="btn dining-choice" ng-click="flip('cook')" value="Cook" readonly/>
+				or
+				<input class="btn dining-choice" ng-click="flip('restaurant')" value="Eat out" readonly/>
+			</div>
+		</div>
+		<div class="back">
+			<div class="cuisine-choice-container">
+				<div class="go-back-button" ng-click="flip()"><span class="glyphicon glyphicon-share-alt glyphicon-flipped"></span>&nbsp;Go back</div><br/>
+				<img src="img/logo.png" />
+				<p>What kind of food are you looking for?</p>
+
+				<select id="cuisines" ng-options="cuisine.name for cuisine in cuisines" ng-change="go()" ng-model="cuisineChoice"></select>
+				<p id="loading" ng-show="loading">Loading...</p>
+				<select id="orderRestaurants" ng-model="orderRestaurants" ng-show="restaurants!=null">
+					<option selected disabled value="title">Sort by:</option>
+					<option value="distance">Distance</option>
+					<option value="-rating">Rating</option>
+					<option value="name">Alphabetical</option>
+				</select>
+				<select id="orderRecipes" ng-model="orderRecipes" ng-show="recipes!=null">
+					<option selected disabled value="title">Sort by:</option>
+					<option value="-rating">Rating</option>
+					<option value="name">Alphabetical</option>
+					<option value="totalTimeInSeconds">Time</option>
+				</select>
+			</div>
+			<div class="panel-group" id="restaurant-accordion" ng-show="restaurants!=null">
+				<div class="panel panel-default item" ng-repeat="restaurant in restaurants | orderBy: orderRestaurants">
+					<div class="panel-heading">
+						<h4 class="panel-title container">
+							<a data-toggle="collapse" data-parent="#restaurant-accordion" data-target="#collapse{{restaurant.id}}">
+									<img class="col-md-1" ng-src="{{restaurant.image_url}}" />
+									<span class="col-md-4">{{restaurant.name}}<br /><br/><small>{{restaurant.distance}} miles from you</small></span>
+									<img class="col-md-1" ng-src="{{restaurant.rating_img_url}}" />
+							</a>
+						</h4>
+					</div>
+					<div id="collapse{{restaurant.id}}" class="panel-collapse collapse">
+						<div class="panel-body">
+							<p>
+								{{restaurant.location.address[0]}}<br/>
+								{{restaurant.location.address[1]}}<ng-if="{{restaurant.location.address[1]}}" br/>
+								{{restaurant.location.city}}, {{restaurant.location.state_code}} {{restaurant.location.postal_code}}
+							</p>
+							<a href="tel:{{restaurant.phone}}">{{restaurant.display_phone}}</a><br/><br/>
+							<a class="btn btn-default" target="_blank" href='http://maps.google.com/maps?daddr="{{restaurant.name}}, {{restaurant.location.city}}, {{restaurant.location.state_code}} {{restaurant.location.postal_code}}"'>Get Directions</a>&nbsp;
+							<a class="btn btn-danger" href="http://wwww.yelp.com/biz/{{restaurant.id}}" target="_blank">More Info</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel-group" id="recipe-accordion" ng-show="recipes!=null">
+				<div class="panel panel-default item" ng-repeat="recipe in recipes | orderBy: orderRecipes">
+					<div class="panel-heading">
+						<h4 class="panel-title container">
+							<a data-toggle="collapse" data-parent="#recipe-accordion" data-target="#collapse{{recipe.id}}">
+									<img class="col-md-1" ng-src="{{recipe.smallImageUrls[0]}}" />
+									<span class="col-md-4">{{recipe.recipeName}}<br /><br/></span>
+									<div ng-bind-html="recipe.ratingIcon"></div>
+							</a>
+						</h4>
+					</div>
+					<div id="collapse{{recipe.id}}" class="panel-collapse collapse container">
+						<div class="panel-body row">
+							<ul ng-show="recipe.neededIngredients.length!=0" class="ingredients col-md-3">
+								<li>Things you need:</li>
+								<li ng-repeat="ingredient in recipe.neededIngredients"><input type="checkbox" ng-click="addToOwnedIngredients($parent.$index, $index)">{{ingredient.toProperCase()}}</li>
+							</ul>
+							<ul ng-show="recipe.ownedIngredients.length!=0" class="ingredients col-md-3">
+								<li>Things you have:</li>
+								<li ng-repeat="ingredient in recipe.ownedIngredients"><input checked type="checkbox" ng-click="addToNeededIngredients($parent.$index, $index)">{{ingredient.toProperCase()}}</li>
+							</ul>
+							<p ng-if="recipe.totalTimeInSeconds!=null">Total time: {{recipe.totalTimeInSeconds/60}} minutes</p>
+							<a class="btn btn-danger" href="http://www.yummly.com/recipe/{{recipe.id}}" target="_blank">More Info</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

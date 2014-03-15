@@ -1,0 +1,114 @@
+{
+	"cuisines": [
+		{
+			"name": "American", 
+			"yelpValue": "tradamerican", 
+			"yummlyValue": "cuisine^cuisine-american"
+		},
+		{
+			"name": "Barbeque", 
+			"yelpValue": "bbq", 
+			"yummlyValue": "cuisine^cuisine-barbecue-bbq"
+		},
+		{
+			"name": "Cajun/Creole", 
+			"yelpValue": "cajun", 
+			"yummlyValue": "cuisine^cuisine-cajun"
+		},
+		{
+			"name": "Chinese", 
+			"yelpValue": "chinese", 
+			"yummlyValue": "cuisine^cuisine-chinese"
+		},
+		{
+			"name": "Cuban", 
+			"yelpValue": "cuban", 
+			"yummlyValue": "cuisine^cuisine-cuban"
+		},
+		{
+			"name": "French", 
+			"yelpValue": "french", 
+			"yummlyValue": "cuisine^cuisine-french"
+		},
+		{
+			"name": "German", 
+			"yelpValue": "german", 
+			"yummlyValue": "cuisine^cuisine-german"
+		},
+		{
+			"name": "Greek", 
+			"yelpValue": "greek", 
+			"yummlyValue": "cuisine^cuisine-greek"
+		},
+		{
+			"name": "Hawaiian", 
+			"yelpValue": "hawaiian", 
+			"yummlyValue": "cuisine^cuisine-hawaiian"
+		},
+		{
+			"name": "Hungarian", 
+			"yelpValue": "hungarian", 
+			"yummlyValue": "cuisine^cuisine-hungarian"
+		},
+		{
+			"name": "Indian", 
+			"yelpValue": "indpak", 
+			"yummlyValue": "cuisine^cuisine-indian"
+		},
+		{
+			"name": "Irish", 
+			"yelpValue": "irish", 
+			"yummlyValue": "cuisine^cuisine-irish"
+		},
+		{
+			"name": "Italian", 
+			"yelpValue": "italian", 
+			"yummlyValue": "cuisine^cuisine-italian"
+		},
+		{
+			"name": "Japanese", 
+			"yelpValue": "japanese", 
+			"yummlyValue": "cuisine^cuisine-japanese"
+		},
+		{
+			"name": "Mediterranean", 
+			"yelpValue": "mediterranean", 
+			"yummlyValue": "cuisine^cuisine-mediterranean"
+		},
+		{
+			"name": "Mexican", 
+			"yelpValue": "mexican", 
+			"yummlyValue": "cuisine^cuisine-mexican"
+		},
+		{
+			"name": "Moroccan", 
+			"yelpValue": "moroccan", 
+			"yummlyValue": "cuisine^cuisine-moroccan"
+		},
+		{
+			"name": "Portuguese", 
+			"yelpValue": "portuguese", 
+			"yummlyValue": "cuisine^cuisine-portuguese"
+		},
+		{
+			"name": "Scandinavian", 
+			"yelpValue": "scandinavian", 
+			"yummlyValue": "cuisine^cuisine-southern"
+		},
+		{
+			"name": "Southern", 
+			"yelpValue": "southern", 
+			"yummlyValue": "cuisine^cuisine-swedish"
+		},
+		{
+			"name": "Spanish", 
+			"yelpValue": "spanish", 
+			"yummlyValue": "cuisine^cuisine-spanish"
+		},
+		{
+			"name": "Thai", 
+			"yelpValue": "thai", 
+			"yummlyValue": "cuisine^cuisine-thai"
+		}
+	]
+}
